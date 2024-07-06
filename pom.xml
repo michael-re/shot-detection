@@ -52,6 +52,13 @@
             <artifactId>javacv-platform</artifactId>
             <version>1.5.10</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.miglayout/miglayout-swing -->
+        <dependency>
+            <groupId>com.miglayout</groupId>
+            <artifactId>miglayout-swing</artifactId>
+            <version>11.3</version>
+        </dependency>
     </dependencies>
 
     <!-- build -->
