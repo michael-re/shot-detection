@@ -71,8 +71,9 @@ public final class TwinComparison
             }
             else if (aboveTransitionShotThreshold(startFrame))
             {
-                final var endFrame = transitionShotEndFrameCandidate(startFrame);
-                startFrame = Math.max(startFrame, addTransitionShot(startFrame, endFrame));
+                final var candidate = transitionShotEndFrameCandidate(startFrame);
+                final var endFrame  = addTransitionShot(startFrame, candidate);
+                startFrame          = Math.max(startFrame, endFrame);
             }
         }
     }
@@ -109,20 +110,20 @@ public final class TwinComparison
             if (aboveTransitionShotThreshold(endFrame))
             {
                 tor = 0;
-                continue;
             }
 
             // below transition shot threshold
-            if (threshold.sd(endFrame) < threshold.ts())
+            else if (threshold.sd(endFrame) < threshold.ts())
             {
                 if ((++tor) == threshold.tor())
                     return endFrame - 2;
-                continue;
             }
 
             // at transition shot threshold
-            if (threshold.sd(endFrame) >= threshold.tb())
+            else if (threshold.sd(endFrame) >= threshold.tb())
+            {
                 return endFrame - 1;
+            }
         }
 
         return -1;
@@ -130,10 +131,10 @@ public final class TwinComparison
 
     private int addTransitionShot(final int fs, final int fe)
     {
-        if (fs < fe && threshold.sum(fs, fe + 1) >= threshold.tb())
+        if ((fs < fe) && (threshold.sum(fs, fe + 1) >= threshold.tb()))
         {
             final var frameBeg = fs + threshold.frameBeg();
-            final var frameEnd = fe + threshold.frameEnd();
+            final var frameEnd = fe + threshold.frameBeg();
             final var shot     = new TransitionShot(frameBeg, frameEnd);
 
             allShots.add(shot);
