@@ -3,6 +3,7 @@ package mre.vsbds.core.video;
 import mre.vsbds.core.util.Nullable;
 import mre.vsbds.core.util.Precondition;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
+import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.Java2DFrameConverter;
 
 import java.awt.image.BufferedImage;
@@ -52,11 +53,23 @@ public final class VideoContainer
         return grabber.getLengthInVideoFrames();
     }
 
-    public synchronized BufferedImage frame(final int index)
+    public VideoFrameIterator iterator()
+    {
+        return iterator(0, frameCount() - 1);
+    }
+
+    public VideoFrameIterator iterator(final int beg, final int end)
+    {
+        Precondition.validArg(beg >= 0,   "invalid iterator start index");
+        Precondition.validArg(beg <= end, "invalid iterator range");
+        return new VideoFrameIterator(this, beg, end);
+    }
+
+    public synchronized BufferedImage frame(final int frameNumber)
     {
         try
         {
-            grabber.setVideoFrameNumber(index);
+            grabber.setVideoFrameNumber(frameNumber);
             final var frame = grabber.grabImage();
             return (frame == null) ? null : converter.convert(frame);
         }
