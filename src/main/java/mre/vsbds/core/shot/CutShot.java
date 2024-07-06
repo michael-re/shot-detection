@@ -10,6 +10,6 @@ public final class CutShot extends Shot
     @Override
     public String toString()
     {
-        return "cs: " + firstFrame() + ", ce: " + lastFrame() + "";
+        return "cs: " + firstFrame() + ", ce: " + lastFrame();
     }
 }

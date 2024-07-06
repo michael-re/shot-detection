@@ -1,5 +1,6 @@
 package mre.vsbds.core.video;
 
+import mre.vsbds.core.shot.Shot;
 import mre.vsbds.core.util.Nullable;
 import mre.vsbds.core.util.Precondition;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
@@ -50,9 +51,15 @@ public final class Video
         return grabber.getLengthInVideoFrames();
     }
 
-    public FrameIterator iterator()
+    public long frameRate()
     {
-        return iterator(0, frameCount() - 1);
+        return Math.round(grabber.getVideoFrameRate());
+    }
+
+    public FrameIterator iterator(final Shot shot)
+    {
+        Precondition.nonNull(shot);
+        return iterator(shot.firstFrame(), shot.lastFrame() + 50);
     }
 
     public FrameIterator iterator(final int beg, final int end)

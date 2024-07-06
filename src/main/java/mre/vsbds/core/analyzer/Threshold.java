@@ -58,7 +58,7 @@ public final class Threshold
 
     public double sum(final int start, final int end)
     {
-        return IntStream.range(start, end).mapToDouble(i -> sd(i)).sum();
+        return IntStream.range(start, end).mapToDouble(this::sd).sum();
     }
 
     public double sd(final int index)

@@ -51,16 +51,6 @@ public final class TwinComparison
         return Collections.unmodifiableList(allShots);
     }
 
-    public List<Shot> cutShots()
-    {
-        return Collections.unmodifiableList(cutShots);
-    }
-
-    public List<Shot> transitionShots()
-    {
-        return Collections.unmodifiableList(transitionShots);
-    }
-
     private void detectShots()
     {
         for (var startFrame = 0; startFrame < threshold.sdLength(); startFrame++)

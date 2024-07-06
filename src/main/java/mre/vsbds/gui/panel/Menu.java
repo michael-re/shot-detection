@@ -2,7 +2,6 @@ package mre.vsbds.gui.panel;
 
 import mre.vsbds.core.util.Precondition;
 
-import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -27,24 +26,11 @@ public final class Menu extends JMenuBar
         return Precondition.nonNull(items.get(item));
     }
 
-    public JCheckBoxMenuItem getCheckBoxItem(final String item)
-    {
-        Precondition.nonNull(item);
-        return (JCheckBoxMenuItem) getItem(item);
-    }
-
     public JMenuItem addItem(final String menu, final String item)
     {
         Precondition.nonNull(menu);
         Precondition.nonNull(item);
         return getItem(menu, item, JMenuItem::new);
-    }
-
-    public JMenuItem addCheckbox(final String menu, final String item)
-    {
-        Precondition.nonNull(menu);
-        Precondition.nonNull(item);
-        return getItem(menu, item, JCheckBoxMenuItem::new);
     }
 
     private JMenuItem getItem(final String   menu,
