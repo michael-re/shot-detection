@@ -112,7 +112,7 @@ public final class TwinComparison
                 continue;
             }
 
-             // below transition shot threshold
+            // below transition shot threshold
             if (threshold.sd(endFrame) < threshold.ts())
             {
                 if ((++tor) == threshold.tor())
