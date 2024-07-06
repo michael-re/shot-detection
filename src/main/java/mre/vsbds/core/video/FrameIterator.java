@@ -47,9 +47,9 @@ public final class FrameIterator implements Iterator<Frame>, Iterable<Frame>
     {
         if (hasNext())
         {
-            frame.number++;
-            frame.index++;
-            frame.image = video.frame(frame.number);
+            frame.number = (frame.number == -1) ? frameBeg : frame.number + 1;
+            frame.index += 1;
+            frame.image  = video.frame(frame.number);
         }
         else
         {
