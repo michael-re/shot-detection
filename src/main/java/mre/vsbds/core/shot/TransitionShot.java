@@ -10,6 +10,6 @@ public class TransitionShot extends Shot
     @Override
     public String toString()
     {
-        return "[fs: " + firstFrame() + ", fe: " + lastFrame() + "]";
+        return "fs: " + firstFrame() + ", fe: " + lastFrame();
     }
 }

@@ -5,6 +5,7 @@ import mre.vsbds.core.video.Video;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public final class Threshold
 {
@@ -55,6 +56,11 @@ public final class Threshold
         return frameEnd;
     }
 
+    public double sum(final int start, final int end)
+    {
+        return IntStream.range(start, end).mapToDouble(i -> sd(i)).sum();
+    }
+
     public double sd(final int index)
     {
         return (index >= 0) && (index < sd.length)
@@ -95,14 +101,14 @@ public final class Threshold
     @Override
     public String toString()
     {
-        final var df = new DecimalFormat("000,000.00000    ");
-        return "\n+=== Threshold values ===+"
-             + "\n| mean: " + df.format(mean) + "|"
-             + "\n| std:  " + df.format(std)  + "|"
-             + "\n| tb:   " + df.format(tb)   + "|"
-             + "\n| ts:   " + df.format(ts)   + "|"
-             + "\n| tor:  " + df.format(tor)  + "|"
-             + "\n+========================+\n";
+        final var df = new DecimalFormat("000,000.00000");
+        return "\nThreshold values ========="
+             + "\n| mean: " + df.format(mean)
+             + "\n| std:  " + df.format(std)
+             + "\n| tb:   " + df.format(tb)
+             + "\n| ts:   " + df.format(ts)
+             + "\n| tor:  " + df.format(tor)
+             + "\n+========================\n";
     }
 
     private double[] computeSD()
