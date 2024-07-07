@@ -114,3 +114,40 @@ between consecutive frames within a defined range. This adaptive approach
 ensures that the system can be applied to videos of varying content, frame
 rates, and resolutions. The thresholds are adjusted to minimize false positives
 (e.g., noise detected as a shot boundary).
+
+### Cut Shots
+
+Cut shots are abrupt transitions where one scene directly shifts to another,
+without any gradual change. They are detected when the statistical difference
+($`SD`$) between two consecutive frames exceeds the shot boundary threshold
+($`TB`$). This is mathematically expressed as:
+
+## $`SD(f) \geq TB`$
+
+$`\text{Where:}`$
+
+- $`SD(f)`$ is the statistical difference between two consecutive frames.
+- $`TB`$ is the shot boundary threshold.
+
+When this condition is met, a **cut shot** is added to the list of detected shots.
+
+### Transition Shots
+
+Transition shots represent gradual changes between scenes, such as fades or
+dissolves. These shots are detected when the statistical difference ($`SD`$)
+between consecutive frames falls within the range of the transition threshold
+($`TS`$) and the shot boundary threshold ($`TB`$):
+
+## $`TS \leq SD(f) < TB`$
+
+$`\text{Where:}`$
+
+- $`SD(f)`$ is the statistical difference between two consecutive frames.
+- $`TB`$ is the shot boundary threshold.
+- $`TS`$ is the shot transition threshold.
+
+The end of a transition shot is identified by either exceeding the shot boundary
+threshold ($`TB`$), indicating a cut, or falling below the transition threshold
+($`TS`$) for a tolerance window ($`ToR`$) of frames. This tolerance window
+ensures that gradual transitions over multiple frames are correctly classified
+as transition shots.
