@@ -45,7 +45,11 @@ Follow the steps below to compile and run the program:
     mvn clean
     ```
 
-4. Run:
+> [!NOTE]
+> The build process can take a little while to complete. For example, on my
+> machine, it may take approximately **`70 seconds`** to compile the project fully.
+
+1. Run:
 
     ```bash
     # command format
