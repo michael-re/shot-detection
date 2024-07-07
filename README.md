@@ -54,3 +54,38 @@ Follow the steps below to compile and run the program:
     # example using test video under the `video/` directory
     java -jar target/vsbds.jar video/20020924_juve_dk_02a.mpg 1000 5000
     ```
+
+---
+
+## Background: Twin-Comparison Detection
+
+### Shot Detection Overview
+
+Shot detection is the process of identifying boundaries between different scenes
+in a video. These boundaries can represent either **cut shots**, where there is
+a sudden transition between scenes, or **transition shots**, where the change is
+gradual, such as in a dissolve or fade effect. The goal of shot detection is to
+accurately partition a video into its constituent shots, which can then be
+analyzed or used for other tasks such as editing, indexing, or retrieval.
+
+The twin-comparison method used in this project detects shot boundaries by
+analyzing the statistical differences between consecutive frames. This approach
+applies a dual-threshold mechanism to classify the type of transition between
+frames: **cut shots** and **transition shots**. These thresholds allow the
+system to distinguish between sudden changes and gradual scene alterations.
+
+The shot detection process involves several key steps:
+
+1. **Calculate Frame-To-Frame Differences (SD):** Compute the statistical
+   differences between all frames in the specified range, determining how much
+   each frame differs from its successor based on their histogram values.
+
+2. **Calculate Threshold Values:** Using the frame-to-frame difference obtained
+   in step one, compute the threshold values $`TB`$, $`TS`$, and $`ToR`$.
+
+3. **Evaluate Thresholds:** Iterate through the frames, comparing their
+   statistical differences to the thresholds ($`TB`$, $`TS`$, and $`ToR`$) to
+   classify the type of shot.
+
+4. **Store Detected Shots:** Store the classified shots for further analysis
+   or retrieval.
