@@ -9,7 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,17 +18,17 @@ import java.util.TimerTask;
 public final class Control extends JPanel
 {
     private final Gallery  gallery;
-    private final Controls controls;
     private final Player   player;
 
     public Control(final Gallery gallery)
     {
-        this.gallery  = Precondition.nonNull(gallery);
-        this.player   = new Player();
-        this.controls = new Controls();
+        this.gallery = Precondition.nonNull(gallery);
+        this.player  = new Player();
 
         this.setLayout(Layout.borderLayout());
         this.add(player, Layout.borderLayoutCenter());
+
+        final var controls = new Controls();
         this.add(controls, Layout.borderLayoutSouth());
 
         gallery.onViewClick(player::select);

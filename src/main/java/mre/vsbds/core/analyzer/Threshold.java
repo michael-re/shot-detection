@@ -73,16 +73,6 @@ public final class Threshold
         return sd.length;
     }
 
-    public double mean()
-    {
-        return mean;
-    }
-
-    public double std()
-    {
-        return std;
-    }
-
     public double tb()
     {
         return tb;
@@ -160,7 +150,7 @@ public final class Threshold
                     final var c = image.getRGB(x, y);
                     final var r = ((c >> 16) & 0xff) * 0.299f;
                     final var g = ((c >> 8)  & 0xff) * 0.587f;
-                    final var b = ((c >> 0)  & 0xff) * 0.114f;
+                    final var b = ((c)       & 0xff) * 0.114f;
                     final var i = Math.min(240.0f, r + g + b) / 10.0f;
                     bins[(int) i]++;
                 }

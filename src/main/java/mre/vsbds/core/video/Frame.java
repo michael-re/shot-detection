@@ -4,14 +4,12 @@ import mre.vsbds.core.util.Precondition;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.util.HashMap;
-import java.util.Map;
 
 public final class Frame
 {
-    protected BufferedImage image  = null;
-    protected int           index  = -1;
-    protected int           number = -1;
+    BufferedImage image  = null;
+    int           index  = -1;
+    int           number = -1;
 
     public BufferedImage image()
     {

@@ -4,11 +4,8 @@ import mre.vsbds.core.util.Precondition;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 public final class FrameIterator implements Iterator<Frame>, Iterable<Frame>
@@ -20,9 +17,9 @@ public final class FrameIterator implements Iterator<Frame>, Iterable<Frame>
     private final int                frameBeg;
     private final int                frameEnd;
 
-    protected FrameIterator(final Video video,
-                            final int   frameBeg,
-                            final int   frameEnd)
+    public FrameIterator(final Video video,
+                         final int   frameBeg,
+                         final int   frameEnd)
     {
         Precondition.nonNull(video);
         Precondition.validArg(frameBeg >= 0,        "invalid iterator begin range");
@@ -58,7 +55,7 @@ public final class FrameIterator implements Iterator<Frame>, Iterable<Frame>
         if (!smallIconCache.containsKey(frame.index))
         {
             final var image = frame.scaled(110, 70);
-            final var icon  = new ImageIcon(image);
+            final var icon  = new ImageIcon(Precondition.nonNull(image));
             smallIconCache.put(frame.index, icon);
         }
 
@@ -73,7 +70,7 @@ public final class FrameIterator implements Iterator<Frame>, Iterable<Frame>
         if (!largeIconCache.containsKey(frame.index))
         {
             final var image = frame.scaled(700, 325);
-            final var icon  = new ImageIcon(image);
+            final var icon  = new ImageIcon(Precondition.nonNull(image));
             largeIconCache.put(frame.index, icon);
         }
 

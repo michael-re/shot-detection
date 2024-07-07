@@ -8,7 +8,6 @@ import mre.vsbds.gui.util.Border;
 import mre.vsbds.gui.util.Layout;
 
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -94,14 +93,29 @@ public final class Pages extends JPanel
         views.forEach(view -> view.onClick(action));
     }
 
-    public abstract class View extends JLabel
+    public abstract static class View extends JLabel
     {
-        protected abstract Icon thumbnail();
-        protected abstract FrameIterator iterator();
-        protected abstract void onClick(final Consumer<View> action);
+        protected Icon thumbnail()                     { return null; }
+        protected FrameIterator iterator()             { return null; }
+        protected void onClick(final Consumer<View> a) {              }
     }
 
-    public final class ShotView extends View
+    private static final class EmptyView extends View
+    {
+        private EmptyView()
+        {
+            final var border = Border.titleBorder("  ");
+            this.setBorder(Border.compoundBorder(border));
+            this.setLayout(Layout.gridBagLayout());
+
+            final var button = new JButton();
+            button.setFocusCycleRoot(false);
+            button.setVisible(false);
+            this.add(button);
+        }
+    }
+
+    private final class ShotView extends View
     {
         private final FrameIterator iterator;
         private final Icon          thumbnail;
@@ -110,14 +124,13 @@ public final class Pages extends JPanel
         private ShotView(final Shot shot)
         {
             Precondition.nonNull(shot);
-            final var iter = twinComparison.threshold().video().iterator(shot);
+            final var iterator = twinComparison.threshold().video().iterator(shot);
 
-            iter.next();
-            final var icon = iter.smallIcon();
-            final var thumbnail = iter.largeIcon();
-            iter.reset();
+            iterator.next();
+            final var icon      = iterator.smallIcon();
+            final var thumbnail = iterator.largeIcon();
 
-            this.iterator    = iter;
+            this.iterator    = iterator.reset();
             this.button      = new JButton(Precondition.nonNull(icon));
             this.thumbnail   = Precondition.nonNull(thumbnail);
 
@@ -147,24 +160,5 @@ public final class Pages extends JPanel
             Precondition.nonNull(action);
             button.addActionListener(_ -> action.accept(this));
         }
-    }
-
-    public final class EmptyView extends View
-    {
-        private EmptyView()
-        {
-            final var border = Border.titleBorder("  ");
-            this.setBorder(Border.compoundBorder(border));
-            this.setLayout(Layout.gridBagLayout());
-
-            final var button = new JButton();
-            button.setFocusCycleRoot(false);
-            button.setVisible(false);
-            this.add(button);
-        }
-
-        @Override protected Icon thumbnail()                     { return null; }
-        @Override protected FrameIterator iterator()             { return null; }
-        @Override protected void onClick(final Consumer<View> a) {              }
     }
 }

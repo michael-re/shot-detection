@@ -4,7 +4,6 @@ import net.miginfocom.swing.MigLayout;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.LayoutManager;
 
@@ -37,14 +36,6 @@ public final class Layout
     public static GridBagLayout gridBagLayout()
     {
         return new GridBagLayout();
-    }
-
-    public static GridBagConstraints gridBagConstraints()
-    {
-        final var constraints = new GridBagConstraints();
-        constraints.gridx     = 2;
-        constraints.anchor    = GridBagConstraints.SOUTHWEST;
-        return constraints;
     }
 
     public static MigLayout migLayout(final int rows, final int columns)

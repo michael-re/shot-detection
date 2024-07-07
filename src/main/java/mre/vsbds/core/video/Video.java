@@ -11,13 +11,11 @@ import java.io.File;
 
 public final class Video
 {
-    private final File                 file;
     private final FFmpegFrameGrabber   grabber;
     private final Java2DFrameConverter converter;
 
-    private Video(final File file, final FFmpegFrameGrabber grabber)
+    private Video(final FFmpegFrameGrabber grabber)
     {
-        this.file      = Precondition.nonNull(file);
         this.grabber   = Precondition.nonNull(grabber);
         this.converter = new Java2DFrameConverter();
     }
@@ -33,17 +31,7 @@ public final class Video
             return g;
         });
 
-        return (grabber == null) ? null : new Video(file, grabber);
-    }
-
-    public static Video read(final String path)
-    {
-        return read(Nullable.value(() -> new File(path)));
-    }
-
-    public File file()
-    {
-        return file;
+        return (grabber == null) ? null : new Video(grabber);
     }
 
     public int frameCount()

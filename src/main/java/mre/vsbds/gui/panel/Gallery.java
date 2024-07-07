@@ -5,7 +5,6 @@ import mre.vsbds.core.util.Precondition;
 import mre.vsbds.gui.util.Layout;
 
 import javax.swing.JPanel;
-
 import java.util.function.Consumer;
 
 public final class Gallery extends JPanel
