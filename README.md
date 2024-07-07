@@ -1,5 +1,15 @@
 # Video Shot Boundary Detection System
 
+## Description
+
+This repository contains my implementation of a video shot boundary detection
+system that uses the twin-comparison algorithm to detect both abrupt cuts
+and gradual transitions in video sequences. The twin-comparison method
+described in the paper [**_`Automatic Partitioning of Full-Motion Video`_**](https://doi.org/10.1007/BF01210504)
+is employed for detecting video shot boundaries.
+
+---
+
 ## Getting Started
 
 ### Prerequisites
