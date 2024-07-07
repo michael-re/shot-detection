@@ -103,21 +103,25 @@ public final class Threshold
 
     private double[] computeSD()
     {
-        final var histograms      = extractHistograms();
-        final var frameToFrameDif = new double[histograms.length];
-        final var total           = (float) frameToFrameDif.length;
+        final var histograms       = extractHistograms();
+        final var frameToFrameDiff = new double[histograms.length];
+        final var total            = (float) frameToFrameDiff.length;
 
-        for (var frame = 0; frame < frameToFrameDif.length - 1; frame++)
+        for (var frame = 0; frame < frameToFrameDiff.length - 1; frame++)
         {
             for (var bin = 0; bin < histograms[frame].length; bin++)
-                frameToFrameDif[frame] += Math.abs(histograms[frame][bin] - histograms[frame + 1][bin]);
+            {
+                final var currFrameBin   = histograms[frame][bin];
+                final var nextFrameBin   = histograms[frame + 1][bin];
+                frameToFrameDiff[frame] += Math.abs(currFrameBin - nextFrameBin);
+            }
 
             final var progress = Math.round((frame / total) * 100.0f);
             System.out.print("\033[2K\r- computing f-to-f diff: " + progress + "%");
         }
 
         System.out.println("\033[2K\r- computing f-to-f diff: 100% (done)");
-        return frameToFrameDif;
+        return frameToFrameDiff;
     }
 
     private double computeMean()
