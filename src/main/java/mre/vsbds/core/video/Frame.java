@@ -9,8 +9,6 @@ import java.util.Map;
 
 public final class Frame
 {
-    protected final Map<Long, Image> cache = new HashMap<>();
-
     protected BufferedImage image  = null;
     protected int           index  = -1;
     protected int           number = -1;

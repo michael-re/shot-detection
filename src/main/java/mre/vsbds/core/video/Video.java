@@ -59,7 +59,9 @@ public final class Video
     public FrameIterator iterator(final Shot shot)
     {
         Precondition.nonNull(shot);
-        return iterator(shot.firstFrame(), shot.lastFrame() + 50);
+        final var start = shot.firstFrame() - 25;
+        final var end   = shot.lastFrame() + 25;
+        return iterator(Math.max(0, start), Math.min(end, frameCount()));
     }
 
     public FrameIterator iterator(final int beg, final int end)

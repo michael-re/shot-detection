@@ -13,7 +13,8 @@ import java.util.Map;
 
 public final class FrameIterator implements Iterator<Frame>, Iterable<Frame>
 {
-    private final Map<Integer, Icon> cache;
+    private final Map<Integer, Icon> smallIconCache;
+    private final Map<Integer, Icon> largeIconCache;
     private final Video              video;
     private final Frame              frame;
     private final int                frameBeg;
@@ -28,11 +29,12 @@ public final class FrameIterator implements Iterator<Frame>, Iterable<Frame>
         Precondition.validArg(frameEnd >= 0,        "invalid iterator end range");
         Precondition.validArg(frameBeg <= frameEnd, "invalid iterator range");
 
-        this.cache    = new HashMap<>();
-        this.video    = video;
-        this.frame    = new Frame();
-        this.frameBeg = frameBeg;
-        this.frameEnd = frameEnd;
+        this.smallIconCache = new HashMap<>();
+        this.largeIconCache = new HashMap<>();
+        this.video          = video;
+        this.frame          = new Frame();
+        this.frameBeg       = frameBeg;
+        this.frameEnd       = frameEnd;
     }
 
     public FrameIterator reset()
@@ -48,19 +50,34 @@ public final class FrameIterator implements Iterator<Frame>, Iterable<Frame>
         return frameEnd - frameBeg;
     }
 
-    public Icon icon()
+    public Icon smallIcon()
     {
         if (frame.image() == null || frame.index() == -1)
             return null;
 
-        if (!cache.containsKey(frame.index))
+        if (!smallIconCache.containsKey(frame.index))
+        {
+            final var image = frame.scaled(110, 70);
+            final var icon  = new ImageIcon(image);
+            smallIconCache.put(frame.index, icon);
+        }
+
+        return smallIconCache.get(frame.index);
+    }
+
+    public Icon largeIcon()
+    {
+        if (frame.image() == null || frame.index() == -1)
+            return null;
+
+        if (!largeIconCache.containsKey(frame.index))
         {
             final var image = frame.scaled(700, 325);
             final var icon  = new ImageIcon(image);
-            cache.put(frame.index, icon);
+            largeIconCache.put(frame.index, icon);
         }
 
-        return cache.get(frame.index);
+        return largeIconCache.get(frame.index);
     }
 
     @Override

@@ -75,12 +75,12 @@ public final class Pages extends JPanel
 
     public void showPrev()
     {
-        showPage(currentPage.get() + 1);
+        showPage(currentPage.get() - 1);
     }
 
     public void showNext()
     {
-        showPage(currentPage.get() - 1);
+        showPage(currentPage.get() + 1);
     }
 
     private boolean validPage(final int pageIndex)
@@ -110,13 +110,16 @@ public final class Pages extends JPanel
         private ShotView(final Shot shot)
         {
             Precondition.nonNull(shot);
+            final var iter = twinComparison.threshold().video().iterator(shot);
 
-            final var iter      = twinComparison.threshold().video().iterator(shot);
-            final var frame     = iter.next();
+            iter.next();
+            final var icon = iter.smallIcon();
+            final var thumbnail = iter.largeIcon();
+            iter.reset();
 
-            this.button      = new JButton(new ImageIcon(frame.scaled(110, 70)));
-            this.iterator    = iter.reset();
-            this.thumbnail   = new ImageIcon(frame.scaled(700, 325));
+            this.iterator    = iter;
+            this.button      = new JButton(Precondition.nonNull(icon));
+            this.thumbnail   = Precondition.nonNull(thumbnail);
 
             final var border = Border.titleBorder("start frame: " + shot.firstFrame());
             this.setBorder(Border.compoundBorder(border));
