@@ -89,3 +89,28 @@ The shot detection process involves several key steps:
 
 4. **Store Detected Shots:** Store the classified shots for further analysis
    or retrieval.
+
+### Thresholding
+
+Thresholding plays a crucial role in shot detection by providing criteria to
+determine when a frame transition qualifies as a boundary. The twin-comparison
+method relies on three primary thresholds to classify transitions:
+
+1. **Shot Boundary Threshold (TB):** This threshold identifies the likelihood of
+   an abrupt cut between scenes. When the statistical difference (SD) between
+   consecutive frames exceeds this threshold, a cut shot is detected.
+
+2. **Transition Threshold (TS):** This threshold differentiates gradual
+   transitions from noise. It helps to distinguish subtle changes in the video
+   from insignificant fluctuations that do not represent a true scene change.
+
+3. **Tolerance Threshold (ToR):** This threshold controls the maximum number of
+   frames that can fall below the transition threshold during a gradual shot.
+   It allows for a tolerance window that accounts for smooth transitions over
+   multiple frames, such as dissolves or fades.
+
+These thresholds are dynamically derived based on the frame-to-frame differences
+between consecutive frames within a defined range. This adaptive approach
+ensures that the system can be applied to videos of varying content, frame
+rates, and resolutions. The thresholds are adjusted to minimize false positives
+(e.g., noise detected as a shot boundary).
