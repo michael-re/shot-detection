@@ -1,5 +1,17 @@
 # Video Shot Boundary Detection System
 
+>
+> ## Table of Contents
+>
+> - [**Getting Started**](#getting-started)
+>   - [Prerequisites](#prerequisites)
+>   - [Building \& Running](#building--running)
+> - [**Background: Twin-Comparison Detection**](#background-twin-comparison-detection)
+>   - [Thresholding](#thresholding)
+>   - [Cut Shots](#cut-shots)
+>   - [Transition Shots](#transition-shots)
+>
+
 ## Description
 
 This repository contains my implementation of a video shot boundary detection
