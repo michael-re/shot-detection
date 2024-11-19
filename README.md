@@ -29,7 +29,7 @@ is employed for detecting video shot boundaries.
 Before you begin, ensure you have the following tools installed on your system:
 
 - [`maven`](https://maven.apache.org/)
-- [`jdk 22`](https://openjdk.org/)
+- [`jdk 23`](https://openjdk.org/)
 
 ### Building & Running
 
