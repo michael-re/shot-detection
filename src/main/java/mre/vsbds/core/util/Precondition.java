@@ -13,11 +13,6 @@ public class Precondition
         return value;
     }
 
-    public static void validArg(boolean expression)
-    {
-        validArg(expression, "invalid arg");
-    }
-
     public static void validArg(boolean expression, final String message)
     {
         Precondition.nonNull(message);

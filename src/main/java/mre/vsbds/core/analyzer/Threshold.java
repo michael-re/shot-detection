@@ -51,11 +51,6 @@ public final class Threshold
         return frameBeg;
     }
 
-    public int frameEnd()
-    {
-        return frameEnd;
-    }
-
     public double sum(final int start, final int end)
     {
         return IntStream.range(start, end).mapToDouble(this::sd).sum();
