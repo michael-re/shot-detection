@@ -93,7 +93,7 @@ public final class Threshold
              + "\n| tb:   " + df.format(tb)
              + "\n| ts:   " + df.format(ts)
              + "\n| tor:  " + df.format(tor)
-             + "\n+========================\n";
+             + "\n+=========================\n";
     }
 
     private double[] computeSD()
