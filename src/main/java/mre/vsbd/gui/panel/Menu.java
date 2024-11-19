@@ -1,6 +1,6 @@
-package mre.vsbds.gui.panel;
+package mre.vsbd.gui.panel;
 
-import mre.vsbds.core.util.Precondition;
+import mre.vsbd.core.util.Precondition;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;

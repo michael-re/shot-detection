@@ -65,10 +65,10 @@ Follow the steps below to compile and run the program:
 
     ```bash
     # command format
-    java -jar target/vsbds.jar <video-file> <start-frame> <end-frame>
+    java -jar target/vsbd.jar <video-file> <start-frame> <end-frame>
 
     # example using test video under the `video/` directory
-    java -jar target/vsbds.jar video/20020924_juve_dk_02a.mpg 1000 5000
+    java -jar target/vsbd.jar video/20020924_juve_dk_02a.mpg 1000 5000
     ```
 
 ---

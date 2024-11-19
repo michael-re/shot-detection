@@ -1,4 +1,4 @@
-package mre.vsbds.gui.util;
+package mre.vsbd.gui.util;
 
 import javax.swing.BorderFactory;
 import javax.swing.border.CompoundBorder;

@@ -1,8 +1,8 @@
-package mre.vsbds.gui.util;
+package mre.vsbd.gui.util;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import mre.vsbds.core.util.Nullable;
-import mre.vsbds.core.util.Precondition;
+import mre.vsbd.core.util.Nullable;
+import mre.vsbd.core.util.Precondition;
 
 import javax.swing.Icon;
 

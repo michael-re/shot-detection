@@ -1,8 +1,8 @@
-package mre.vsbds.gui.panel;
+package mre.vsbd.gui.panel;
 
-import mre.vsbds.core.analyzer.TwinComparison;
-import mre.vsbds.core.util.Precondition;
-import mre.vsbds.gui.util.Layout;
+import mre.vsbd.core.analyzer.TwinComparison;
+import mre.vsbd.core.util.Precondition;
+import mre.vsbd.gui.util.Layout;
 
 import javax.swing.JPanel;
 import java.util.function.Consumer;

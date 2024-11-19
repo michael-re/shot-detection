@@ -1,10 +1,10 @@
-package mre.vsbds.core.analyzer;
+package mre.vsbd.core.analyzer;
 
-import mre.vsbds.core.shot.CutShot;
-import mre.vsbds.core.shot.Shot;
-import mre.vsbds.core.shot.TransitionShot;
-import mre.vsbds.core.util.Precondition;
-import mre.vsbds.core.video.Video;
+import mre.vsbd.core.shot.CutShot;
+import mre.vsbd.core.shot.Shot;
+import mre.vsbd.core.shot.TransitionShot;
+import mre.vsbd.core.util.Precondition;
+import mre.vsbd.core.video.Video;
 
 import java.util.ArrayList;
 import java.util.Collections;

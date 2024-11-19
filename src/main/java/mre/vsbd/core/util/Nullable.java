@@ -1,4 +1,4 @@
-package mre.vsbds.core.util;
+package mre.vsbd.core.util;
 
 public interface Nullable<T>
 {

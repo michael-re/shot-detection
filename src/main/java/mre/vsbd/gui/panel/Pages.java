@@ -1,11 +1,11 @@
-package mre.vsbds.gui.panel;
+package mre.vsbd.gui.panel;
 
-import mre.vsbds.core.analyzer.TwinComparison;
-import mre.vsbds.core.shot.Shot;
-import mre.vsbds.core.util.Precondition;
-import mre.vsbds.core.video.FrameIterator;
-import mre.vsbds.gui.util.Border;
-import mre.vsbds.gui.util.Layout;
+import mre.vsbd.core.analyzer.TwinComparison;
+import mre.vsbd.core.shot.Shot;
+import mre.vsbd.core.util.Precondition;
+import mre.vsbd.core.video.FrameIterator;
+import mre.vsbd.gui.util.Border;
+import mre.vsbd.gui.util.Layout;
 
 import javax.swing.Icon;
 import javax.swing.JButton;

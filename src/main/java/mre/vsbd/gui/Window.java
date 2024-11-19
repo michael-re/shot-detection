@@ -1,12 +1,12 @@
-package mre.vsbds.gui;
+package mre.vsbd.gui;
 
-import mre.vsbds.core.analyzer.TwinComparison;
-import mre.vsbds.core.util.Precondition;
-import mre.vsbds.gui.panel.Control;
-import mre.vsbds.gui.panel.Gallery;
-import mre.vsbds.gui.panel.Menu;
-import mre.vsbds.gui.util.Assets;
-import mre.vsbds.gui.util.Layout;
+import mre.vsbd.core.analyzer.TwinComparison;
+import mre.vsbd.core.util.Precondition;
+import mre.vsbd.gui.panel.Control;
+import mre.vsbd.gui.panel.Gallery;
+import mre.vsbd.gui.panel.Menu;
+import mre.vsbd.gui.util.Assets;
+import mre.vsbd.gui.util.Layout;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;

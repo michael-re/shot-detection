@@ -1,4 +1,4 @@
-package mre.vsbds.gui.util;
+package mre.vsbd.gui.util;
 
 import net.miginfocom.swing.MigLayout;
 

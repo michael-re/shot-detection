@@ -1,8 +1,8 @@
-package mre.vsbds.core.video;
+package mre.vsbd.core.video;
 
-import mre.vsbds.core.shot.Shot;
-import mre.vsbds.core.util.Nullable;
-import mre.vsbds.core.util.Precondition;
+import mre.vsbd.core.shot.Shot;
+import mre.vsbd.core.util.Nullable;
+import mre.vsbd.core.util.Precondition;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.Java2DFrameConverter;
 

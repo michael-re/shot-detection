@@ -1,4 +1,4 @@
-package mre.vsbds.core.shot;
+package mre.vsbd.core.shot;
 
 public final class CutShot extends Shot
 {

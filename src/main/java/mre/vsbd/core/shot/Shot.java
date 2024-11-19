@@ -1,6 +1,6 @@
-package mre.vsbds.core.shot;
+package mre.vsbd.core.shot;
 
-import mre.vsbds.core.util.Precondition;
+import mre.vsbd.core.util.Precondition;
 
 public abstract class Shot implements Comparable<Shot>
 {

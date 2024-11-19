@@ -1,10 +1,10 @@
-package mre.vsbds;
+package mre.vsbd;
 
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
-import mre.vsbds.core.analyzer.TwinComparison;
-import mre.vsbds.core.util.Nullable;
-import mre.vsbds.core.video.Video;
-import mre.vsbds.gui.Window;
+import mre.vsbd.core.analyzer.TwinComparison;
+import mre.vsbd.core.util.Nullable;
+import mre.vsbd.core.video.Video;
+import mre.vsbd.gui.Window;
 
 import javax.swing.SwingUtilities;
 import java.io.File;

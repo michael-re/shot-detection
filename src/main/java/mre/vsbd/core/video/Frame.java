@@ -1,6 +1,6 @@
-package mre.vsbds.core.video;
+package mre.vsbd.core.video;
 
-import mre.vsbds.core.util.Precondition;
+import mre.vsbd.core.util.Precondition;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;

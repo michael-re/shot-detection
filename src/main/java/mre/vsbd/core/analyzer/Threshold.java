@@ -1,7 +1,7 @@
-package mre.vsbds.core.analyzer;
+package mre.vsbd.core.analyzer;
 
-import mre.vsbds.core.util.Precondition;
-import mre.vsbds.core.video.Video;
+import mre.vsbd.core.util.Precondition;
+import mre.vsbd.core.video.Video;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
